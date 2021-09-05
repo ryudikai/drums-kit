@@ -1,17 +1,15 @@
 // Detecting Button Press
-var numberOfDrumButtons = document.querySelectorAll(".drum").length;
+// var numberOfDrumButtons = $(document)(".drum").length;
 
-for (var i = 0; i < numberOfDrumButtons; i++) {
-  document.querySelectorAll(".drum")[i].addEventListener("click", function() {
-    var buttonInnerHTML = this.innerHTML;
-    pickSound(buttonInnerHTML);
-    buttonAnimation(buttonInnerHTML);
-  });
-}
+$(".drum").click(function() {
+  var buttonInnerHTML = this.innerHTML;
+  pickSound(buttonInnerHTML);
+  buttonAnimation(buttonInnerHTML);
+});
 
 
 // Detecting Key Down
-document.addEventListener("keydown", function(event) {
+$(document).keydown(function(event) {
   pickSound(event.key);
   buttonAnimation(event.key);
 });
@@ -69,9 +67,9 @@ function pickSound(option) {
 
 // Button animation
 function buttonAnimation (currentKey) {
-  var activeButton = document.querySelector("." + currentKey);
-  activeButton.classList.add("pressed");
+  var activeButton = $(document)("." + currentKey);
+  activeButton.addClass("pressed");
   setTimeout(function () {
-    activeButton.classList.remove("pressed");
+    activeButton.removeClass("pressed");
   }, 100);
 }
