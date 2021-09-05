@@ -1,6 +1,4 @@
 // Detecting Button Press
-// var numberOfDrumButtons = $(document)(".drum").length;
-
 $(".drum").click(function() {
   var buttonInnerHTML = this.innerHTML;
   pickSound(buttonInnerHTML);
